@@ -3,6 +3,7 @@
 const http  = require('http');
 const execSync = require("child_process").execSync;
 
+
 postData = (data) => {
 
     var postData = JSON.stringify(data);
@@ -10,7 +11,7 @@ postData = (data) => {
     var options = {
       hostname: 'kyotehut.lan',
       port: 4000,
-      path: '/api/insertPressureDepth/',
+      path: '/api/insertDepth/',
       method: 'POST',
       headers: {
            'Content-Type': 'application/json',
