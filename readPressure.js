@@ -47,7 +47,7 @@ while (true) {
 
         lines = result.split(/\r?\n/);
         console.log("Sending:", lines[1]);
-        postData({'depth': lines[1]});
+        postData(lines[1]);
 
     } catch (error) {
         console.log("Error:", error.message);
