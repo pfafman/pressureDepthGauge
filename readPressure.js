@@ -32,8 +32,8 @@ postData = (data) => {
 	   console.error("postData",e);
     });
 
-    console.log("postData", data);
-    req.write(data,'utf8');
+    console.log("postData", postData);
+    req.write(postData,'utf8');
     req.end();
 }
 
