@@ -1,4 +1,5 @@
-#distanceReader
+Pressure Depth Gauge
+====================
 
 
 Read the water depth on a raspberry pi from the KIT0139 is an waterproof pressure sensor.
