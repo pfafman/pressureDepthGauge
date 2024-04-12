@@ -5,13 +5,14 @@ import time
 import ADS1263
 import RPi.GPIO as GPIO
 
-REF = 5.18           # Modify according to actual voltage
-                     # external AVDD and AVSS(Default), or internal 2.5V
+REF = 5.18            # Modify according to actual voltage
+                      # external AVDD and AVSS(Default), or internal 2.5V
 
-CURRENT_INIT = 4.10  # Current @ 0mm (uint: mA)
-RANGE = 5000         # Depth measuring range 5000mm (for water)
-DENSITY_WATER = 1    # Pure water density normalized to 1
-    
+CURRENT_INIT = 4.105  # Current @ 0mm (uint: mA)
+RANGE         = 5000  # Depth measuring range 5000mm (for water)
+DENSITY_WATER = 1     # Pure water density normalized to 1
+OFFSET        = 0.5
+GAIN          = 1
 
 try:
     ADC = ADS1263.ADS1263()
@@ -38,7 +39,7 @@ try:
 
     volts /= count
     amps = volts/120
-    depth = (amps*1000 - CURRENT_INIT) * (RANGE / DENSITY_WATER / 16.0)
+    depth = GAIN * (amps*1000 - CURRENT_INIT) * (RANGE / DENSITY_WATER / 16.0) + OFFSET
     
     if depth < 0:
         depth = 0
