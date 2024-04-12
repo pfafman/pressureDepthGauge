@@ -9,7 +9,7 @@ postData = (data) => {
     var postData = JSON.stringify(data);
 
     var options = {
-      hostname: 'kyotehut.lan',
+      hostname: 'kyotehut23.lan',
       port: 3000,
       path: '/api/insertPressureDepth/',
       method: 'POST',
