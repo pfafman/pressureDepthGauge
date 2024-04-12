@@ -39,14 +39,17 @@ try:
 
     volts /= count
     amps = volts/120
-    depth = GAIN * (amps*1000 - CURRENT_INIT) * (RANGE / DENSITY_WATER / 16.0) + OFFSET
+    depth = (amps*1000 - CURRENT_INIT) * (RANGE / DENSITY_WATER / 16.0)
     
     if depth < 0:
         depth = 0
+
+    correctedDepth = GAIN * depth + OFFSET
+    
+    inches1 = depth * 0.0393701
+    inches = correctedDepth * 0.0393701
         
-    inches = depth * 0.0393701
-        
-    print("%lf volts %lf amps -> %lf mm, %lf inches" % (volts, amps, depth, inches))
+    print("%lf volts %lf amps -> %lf %lf mm, %lf %lf inches" % (volts, amps, depth, correctedDepth, inches1, inches))
     print("%lf" % (inches))
     
     ADC.ADS1263_Exit()
