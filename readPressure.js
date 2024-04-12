@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const http  = require('http');
+const http  = require('node:http');
 const execSync = require("child_process").execSync;
 
 
@@ -9,8 +9,8 @@ postData = (data) => {
     var postData = JSON.stringify(data);
 
     var options = {
-      hostname: 'kyotehut23.lan',
-      port: 3000,
+      hostname: 'kyotehut.lan',
+      port: 4000,
       path: '/api/insertPressureDepth/',
       method: 'POST',
       headers: {
@@ -30,10 +30,10 @@ postData = (data) => {
         res.on('end', () => {
             console.log('No more data in response.');
         });
-    });
+    })
 
-    req.on('error', (e) => {
-	   console.error("postData",e);
+    .on('error', (e) => {
+	   console.error("Post Error",e);
     });
 
     console.log("postData", postData);
