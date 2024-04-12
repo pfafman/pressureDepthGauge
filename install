@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Install systemd service for depthPressureReader"
-cp depthReader.service /lib/systemd/system/depthPressureReader.service
+cp depthPressureReader.service /lib/systemd/system/depthPressureReader.service
 chown root.root /lib/systemd/system/depthPressureReader.service
 
 sudo systemctl enable depthPressureReader.service
