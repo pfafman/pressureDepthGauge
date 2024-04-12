@@ -40,7 +40,7 @@ postData = (data) => {
 
 while (true) {
     try {
-        const result = execSync('python',["./readSensor.py"]);
+        const result = execSync('python',["./readSensor.py"]).toString();
         console.log(result);
 
         lines = result.split(/\r?\n/);
