@@ -33,7 +33,7 @@ postData = (data) => {
     });
 
     console.log("postData", data);
-    req.write(postData,'utf8');
+    req.write(data,'utf8');
     req.end();
 }
 
