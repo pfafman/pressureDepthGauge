@@ -20,12 +20,16 @@ postData = (data) => {
     };
 
     var req = http.request(options, (res) => {
-      console.log('postdata statusCode:', res.statusCode);
-      // console.log("");
+        console.log('postdata statusCode:', res.statusCode);
+        // console.log("");
 
-      res.on('data', (d) => {
-        process.stdout.write(d);
-      });
+        res.on('data', (d) => {
+            console.log(`BODY: ${d}`);
+        });
+
+        res.on('end', () => {
+            console.log('No more data in response.');
+        });
     });
 
     req.on('error', (e) => {
