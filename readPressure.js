@@ -11,7 +11,7 @@ postData = (data) => {
     var options = {
       hostname: 'kyotehut.lan',
       port: 4000,
-      path: '/api/insertDepth/',
+      path: '/api/insertPressureDepth/',
       method: 'POST',
       headers: {
            'Content-Type': 'application/json',
