@@ -12,7 +12,7 @@ CURRENT_INIT = 4.105  # Current @ 0mm (uint: mA)
 RANGE         = 5000  # Depth measuring range 5000mm (for water)
 DENSITY_WATER = 1     # Pure water density normalized to 1
 OFFSET        = 12.7  # Width of Sensor
-GAIN          = 1
+GAIN          = 1.06  # Gain Offset (?)
 
 try:
     ADC = ADS1263.ADS1263()
