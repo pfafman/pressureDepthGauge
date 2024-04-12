@@ -41,10 +41,11 @@ postData = (data) => {
 while (true) {
     try {
         console.log("run ...");
-        const result = execSync('./readSensor.py').toString();
+        const result = execSync('./readSensor.py').toString().trim();
         console.log(result);
 
         lines = result.split(/\r?\n/);
+        console.log("Send:", lines[1]);
         //postData({'depth': lines[1]});
 
     } catch (error) {
