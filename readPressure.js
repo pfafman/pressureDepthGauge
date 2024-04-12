@@ -10,7 +10,7 @@ postData = (data) => {
 
     var options = {
       hostname: 'kyotehut.lan',
-      port: 4000,
+      port: 3000,
       path: '/api/insertPressureDepth/',
       method: 'POST',
       headers: {
@@ -39,7 +39,7 @@ postData = (data) => {
     console.log("postData", postData);
     req.write(postData,'utf8');
     req.end();
-    console.log("end", req);
+    //console.log("end", req);
 }
 
 
