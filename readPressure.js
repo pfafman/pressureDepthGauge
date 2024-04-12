@@ -40,6 +40,7 @@ postData = (data) => {
 
 while (true) {
     try {
+        console.log("run ...");
         const result = execSync('python',["ls"]).toString();
         console.log(result);
 
