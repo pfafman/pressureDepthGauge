@@ -55,7 +55,7 @@ async function repeatedLoop() {
 
             lines = result.split(/\r?\n/);
             console.log("Sending:", lines[1]);
-            postData({'depth':lines[1]});
+            postData({'depth': Number(lines[1])});
 
             await sleepNow(1000)
 
