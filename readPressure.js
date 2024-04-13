@@ -27,11 +27,11 @@ postData = (data) => {
         // console.log("");
 
         res.on('data', (d) => {
-            console.log(`BODY: ${d}`);
+            //console.log(`BODY: ${d}`);
         });
 
         res.on('end', () => {
-            console.log('No more data in response.');
+            //console.log('No more data in response.');
         });
     })
 
