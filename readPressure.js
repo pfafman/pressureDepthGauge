@@ -48,18 +48,33 @@ postData = (data) => {
 }
 
 
+let depth = 0;
+let count = 0;
+
 async function repeatedLoop() {
     while (true) {
         try {
             
-            const result = execSync('./readSensor.py').toString().trim();
-            //console.log(result);
+            depth = 0;
+            count = 0;
+            
+            while (count < 10) {
 
-            lines = result.split(/\r?\n/);
-            console.log("Sending:", lines[1]);
-            postData({'depth': Number(lines[1])});
+                const result = execSync('./readSensor.py').toString().trim();
+                //console.log(result);
 
-            await sleepNow(1000)
+                lines = result.split(/\r?\n/);
+                depth += Number(lines[1]);
+                count++;
+                await sleepNow(1000)
+            }
+
+            depth /= count;
+
+            console.log("Sending:", depth);
+            postData({'depth': depth});
+
+            await sleepNow(5000)
 
         } catch (error) {
             console.log("Error:", error.message);
