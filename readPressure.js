@@ -66,7 +66,7 @@ async function repeatedLoop() {
                 lines = result.split(/\r?\n/);
                 depth += Number(lines[1]);
                 count++;
-                await sleepNow(1000)
+                await sleepNow(250)
             }
 
             depth /= count;
