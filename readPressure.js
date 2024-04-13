@@ -23,8 +23,10 @@ postData = (data) => {
     };
 
     var req = http.request(options, (res) => {
-        console.log('postdata statusCode:', res.statusCode);
-        // console.log("");
+        if (res.statusCode != 200) {
+            console.log('postdata statusCode:', res.statusCode);
+            // console.log("");
+        }
 
         res.on('data', (d) => {
             //console.log(`BODY: ${d}`);
@@ -39,7 +41,7 @@ postData = (data) => {
 	   console.error("Post Error",e);
     });
 
-    console.log("postData", postData);
+    //console.log("postData", postData);
     req.write(postData,'utf8');
     req.end();
     //console.log("end", req);
