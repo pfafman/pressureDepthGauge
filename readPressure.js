@@ -2,7 +2,9 @@
 
 const http  = require('node:http');
 const execSync = require("child_process").execSync;
+const os = require('os');
 
+const hostname = os.hostname();
 
 const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
@@ -72,7 +74,12 @@ async function repeatedLoop() {
             depth /= count;
 
             console.log("Sending:", depth);
-            postData({'depth': depth});
+            postData(
+                {
+                    'depth': depth,
+                    'host': hostname
+                },
+            );
 
             await sleepNow(5000)
 
