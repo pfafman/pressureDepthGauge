@@ -351,7 +351,7 @@ class ADS1263:
         self.ADS1263_reset()
         id = self.ADS1263_ReadChipID()
         if id != 0x01 :
-            print("ID Read failed   ")
+            print("ID Read failed   %d", % (id))
             return -1
         self.ADS1263_WriteCmd(ADS1263_CMD['CMD_STOP1'])
         self.ADS1263_ConfigADC(ADS1263_GAIN['ADS1263_GAIN_1'], ADS1263_DRATE[Rate1])
