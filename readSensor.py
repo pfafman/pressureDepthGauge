@@ -49,7 +49,7 @@ try:
     inches1 = depth * 0.0393701
     inches = correctedDepth * 0.0393701
         
-    print("%lf volts %lf amps -> %lf %lf mm, %lf %lf inches" % (volts, amps, depth, correctedDepth, inches1, inches))
+    print("%lf volts %lf milliamps -> %lf %lf mm, %lf %lf inches" % (volts, amps*1000, depth, correctedDepth, inches1, inches))
     print("%lf" % (inches))
     
     ADC.ADS1263_Exit()
