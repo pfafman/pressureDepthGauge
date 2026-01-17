@@ -5,13 +5,13 @@ import time
 import ADS1263
 import RPi.GPIO as GPIO
 
-REF = 5.23            # Modify according to actual voltage   (Measured: 5.23V on 2025-11-29
+REF = 5.15            # Modify according to actual voltage   (Measured: 5.23V on 2025-11-29
                       # external AVDD and AVSS(Default), or internal 2.5V
 
-CURRENT_INIT =  4.115   # Current @ 0mm (uint: mA)
+CURRENT_INIT =  4.106   # Current @ 0mm (uint: mA)
 RANGE         = 5000  # Depth measuring range 5000mm (for water)
 DENSITY_WATER = 1     # Pure water density normalized to 1
-OFFSET        = -14.0     # (mm) Width of Sensor
+OFFSET        = 0.0     # (mm) Width of Sensor
 GAIN          = 1.00  # Gain Offset (?)
 
 try:
