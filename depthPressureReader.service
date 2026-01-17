@@ -6,7 +6,7 @@ After=network.target
 [Service]
 WorkingDirectory=/opt/pressureReader
 ExecStart=/usr/bin/node readPressure.js
-PIDFile=/var/run/coworkr/depthPressureReader.pid
+PIDFile=/var/run/depthPressureReader.pid
 SyslogIdentifier=depthPressureReader
 Restart=always
 
